@@ -1,28 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { Graphic1Component } from './pages/graphic1/graphic1.component';
-import { NotPageComponent } from './pages/notpage/notpage.component';
-import { PagesComponent } from './pages/pages.component';
-import { ProgressComponent } from './pages/progress/progress.component';
+import { NotPageComponent } from './notpage/notpage.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   {
-    path: '',
-    component: PagesComponent,
-    children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'progress', component: ProgressComponent },
-      { path: 'graphic1', component: Graphic1Component },
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    ],
+    path: 'session',
+    loadChildren: () => import('./auth/auth.routes').then((r) => r.AuthRoutes),
   },
-
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./pages/pages.routes').then((r) => r.PagesRoutes),
+  },
   { path: '**', component: NotPageComponent },
 ];
 
