@@ -1,32 +1,25 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { Graphic1Component } from './graphic1/graphic1.component';
 import { PagesComponent } from './pages.component';
+import { ProgressComponent } from './progress/progress.component';
 
-export const PagesRoutes: Routes = [
+const PagesRoutes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: PagesComponent,
     children: [
-      {
-        path: '',
-        loadComponent: () =>
-          import('./dashboard/dashboard.component').then(
-            (mod) => mod.DashboardComponent
-          ),
-      },
-      {
-        path: 'progress',
-        loadComponent: () =>
-          import('./progress/progress.component').then(
-            (mod) => mod.ProgressComponent
-          ),
-      },
-      {
-        path: 'graphic1',
-        loadComponent: () =>
-          import('./graphic1/graphic1.component').then(
-            (mod) => mod.Graphic1Component
-          ),
-      },
+      { path: '', component: DashboardComponent },
+      { path: 'progress', component: ProgressComponent },
+      { path: 'grafica1', component: Graphic1Component },
     ],
   },
 ];
+
+@NgModule({
+  declarations: [],
+  imports: [RouterModule.forChild(PagesRoutes)],
+  exports: [RouterModule],
+})
+export class PagesRoutingModule {}
