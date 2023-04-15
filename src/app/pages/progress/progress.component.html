@@ -1,1 +1,57 @@
-<p>progress works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        Mi progress
+        <div class="progress mb-2">
+          <div
+            class="progress-bar bg-info progress-bar-striped active"
+            role="progressbar"
+            style="height: 10px"
+            [ngStyle]="{ 'width.%': bar_progre_1 }"
+          >
+            <span class="sr-only">85% Complete</span>
+          </div>
+        </div>
+        <div class="progress">
+          <div
+            class="progress-bar bg-primary progress-bar-striped active"
+            role="progressbar"
+            style="height: 10px"
+            [ngStyle]="{ 'width.%': bar_progre_2 }"
+          >
+            <span class="sr-only">85% Complete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="col-lg-12">
+          <app-increment
+            [btnClass]="'btn btn-info'"
+            [progress]="bar_progre_1"
+            (newProgEvent)="bar_progre_1 = $event"
+          ></app-increment>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="col-lg-12">
+          <app-increment
+            [progress]="bar_progre_2"
+            (newProgEvent)="bar_progre_2 = $event"
+          ></app-increment>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

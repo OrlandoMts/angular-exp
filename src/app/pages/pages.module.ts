@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { FormsModule } from '@angular/forms';
+import { IncrementComponent } from '../components/increment/increment.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graphic1Component } from './graphic1/graphic1.component';
@@ -20,7 +22,14 @@ import { ProgressComponent } from './progress/progress.component';
     ProgressComponent,
     PagesComponent,
     Graphic1Component,
+    // IncrementComponent,
   ],
-  imports: [CommonModule, SharedModule, RouterModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule,
+    FormsModule,
+    IncrementComponent,
+  ],
 })
 export class PagesModule {}
