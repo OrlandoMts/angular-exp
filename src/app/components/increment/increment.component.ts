@@ -24,4 +24,15 @@ export class IncrementComponent {
     this.progress <= 0 ? (this.progress = 0) : (this.progress -= 1);
     this.newProgEvent.emit(this.progress);
   }
+
+  onChange(value: number) {
+    if(value >= 100) {
+      this.progress = 100
+    } else if(value <= 0) {
+      this.progress = 0
+    } else{
+      this.progress = value
+    }
+    this.newProgEvent.emit(this.progress);
+  }
 }
