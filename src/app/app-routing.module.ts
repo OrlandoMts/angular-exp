@@ -22,6 +22,11 @@ const routes: Routes = [
   // },
   // { path: '**', component: NotPageComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./auth/auth.routes').then((mod) => mod.AuthRoutes),
+  },
   { path: '**', component: NotPageComponent },
 ];
 
