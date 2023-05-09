@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graphic1Component } from './graphic1/graphic1.component';
 import { PagesComponent } from './pages.component';
 import { ProgressComponent } from './progress/progress.component';
+import { PromiseComponent } from './promise/promise.component';
 
 const PagesRoutes: Routes = [
   {
@@ -16,6 +17,7 @@ const PagesRoutes: Routes = [
       { path: 'progress', component: ProgressComponent },
       { path: 'grafica1', component: Graphic1Component },
       { path: 'account-settings', component: AccountSettingComponent },
+      { path: 'promise', component: PromiseComponent },
     ],
   },
 ];
